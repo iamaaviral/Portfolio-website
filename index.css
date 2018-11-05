@@ -1,0 +1,221 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  margin: 0;
+  font-weight: 300;
+  color: white;
+  background: linear-gradient(to top, rgb(91, 139, 169), rgb(28, 39, 67));
+  background-attachment: fixed;
+}
+#loading { 
+  display: block;
+  position: fixed; /* or absolute */
+  top: 40%;
+  left: 45%;
+}
+
+#content {
+  display: none;
+}
+
+#myVideo {
+  object-fit: fill;
+  width: 50%;
+  height: 100%;
+  position: fixed;
+  margin-bottom: 100px;
+  min-height: 100%;
+  right: 0;
+  filter: blur(2px);
+  z-index: -1;
+  transition: 1s;
+  animation-name: slide;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes slide {
+from {
+  right: -500px;
+}
+
+to {
+  right: 0px;
+}
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0px 100px;
+  height: 100vh;
+}
+
+.row-contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  transition: 1s;
+  animation-name: drop;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes drop {
+from {
+  opacity: 0;
+}
+
+to {
+  opacity: 1;
+}
+}
+
+.header-contents-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navbar-options {
+  list-style: none;
+}
+
+.navbar-options li {
+  display: inline;
+  margin: 10px;
+}
+
+.header-contents-right {
+  border: 2px solid white;
+  padding: 5px 40px;
+}
+
+.body-content {
+  position: relative;
+  padding: 50px;
+  width: 100vh;
+  margin: 0px;
+}
+
+fieldset {
+  border-width: 3px;
+  border-style: groove;
+  border-color: red;
+  border-image: initial;
+}
+
+@keyframes bottomright {
+  0% {
+    width: 0;
+    height: 0;
+    padding-top: 0;
+    visibility: visible;
+  }
+  25% {
+    width: 100%;
+    height: 0;
+    padding-top: 0;
+    visibility: visible;
+  }
+  50% {
+    height: 100%;
+    width: 100%;
+    visibility: visible;
+  }
+  75% {
+    visibility: visible;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+@keyframes topleft {
+  0% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  25% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  50% {
+    width: 0;
+    height: 0;
+    padding-bottom: 0;
+    visibility: hidden;
+  }
+  75% {
+    width: 100%;
+    height: 0;
+    padding-bottom: 0;
+    visibility: visible;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+fieldset:hover:before {
+  animation: topleft 1s ease-in-out forwards;
+}
+
+fieldset:hover:after {
+  animation: bottomright 1s ease-in-out forwards;
+}
+
+fieldset:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  padding-right: 5px;
+  left: -5px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 3px solid rgb(97, 147, 150);
+  border-right: 3px solid rgb(97, 147, 150);
+  visibility: hidden;
+}
+
+fieldset:before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  padding-left: 5px;
+  width: 100%;
+  height: 100%;
+  border-top: 3px solid rgb(97, 147, 150);
+  border-left: 3px solid rgb(97, 147, 150);
+  visibility: hidden;
+}
+
+input[type=email] {
+  background-color: transparent;
+  width: 100%;
+  padding: 12px 20px 12px 0px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid rgb(143,163,182);
+}
+
+input::placeholder {
+  color:  rgb(143,163,182);
+  font-size: 16px;
+}
+
+a {
+  color: white;
+  text-decoration: none
+}
